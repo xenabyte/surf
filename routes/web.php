@@ -20,3 +20,4 @@ Auth::routes([
 ]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
+Route::post('/', [App\Http\Controllers\HomeController::class, 'checkBalance'])->name('checkBalance');
