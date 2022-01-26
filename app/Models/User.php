@@ -12,6 +12,7 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
+    Const VIP_USERS = 33;
     protected $table = 'rm_users';
 
     /**
@@ -26,6 +27,7 @@ class User extends Authenticatable
         'firstname',
         'lastname',
         'email',
+        'srvid', 
     ];
 
     /**
@@ -36,4 +38,20 @@ class User extends Authenticatable
     protected $hidden = [
         'password',
     ];
+
+    public static function getCheckBalanceValidation () {
+        return [
+            'username' => 'required|string',
+            'password' => 'required|string'
+        ];
+    }
+
+    public static function getUpdatePasswordValidation () {
+        return [
+            'username' => 'required|string',
+            'old_password' => 'required|string',
+            'new_password' => 'required|string',
+            'confirm_password' => 'required|string'
+        ];
+    }
 }

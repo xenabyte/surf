@@ -20,4 +20,5 @@ Auth::routes([
 ]);
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'welcome'])->name('welcome');
-Route::post('/', [App\Http\Controllers\HomeController::class, 'checkBalance'])->name('checkBalance');
+Route::post('/checkBalance', [App\Http\Controllers\HomeController::class, 'checkBalance'])->name('checkBalance');
+Route::post('/update/password', [App\Http\Controllers\HomeController::class, 'updatePassword'])->name('updatePassword');
